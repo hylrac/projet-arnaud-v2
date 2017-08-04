@@ -59,6 +59,25 @@ public class ChansonWebService
 
 		return dtos;
 	}
+	
+	@GET
+	@Path("/artist/{artistId}")
+	@Produces( MediaType.APPLICATION_JSON )
+	public List<ChansonDTO> findByArtistId(@PathParam("artistId") int artistId)
+	{
+		List<Chanson> chansons = chansonDAO.findAll();
+		if( chansons == null )
+			return null;
+
+		List<ChansonDTO> dtos = new ArrayList<>();
+
+		for( Chanson chanson : chansons ) {
+			if (chanson.getAuteur().getId()==artistId) dtos.add( dtoFromEntity( chanson ) );
+		}
+			
+
+		return dtos;
+	}
 
 	@POST
 	@Consumes( MediaType.APPLICATION_JSON )
@@ -114,6 +133,7 @@ public class ChansonWebService
 
 		dto.setId( chanson.getId() );
 		dto.setNom( chanson.getNom() );
+		dto.setAuteurId(chanson.getAuteur().getId());
 
 		return dto;
 	}

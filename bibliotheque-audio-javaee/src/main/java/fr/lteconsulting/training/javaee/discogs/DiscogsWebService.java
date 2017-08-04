@@ -9,8 +9,8 @@ import javax.ws.rs.QueryParam;
 public interface DiscogsWebService
 {
 	static final String URL = "https://api.discogs.com";
-	static final String KEY = DiscogsSecrets.getKey();
-	static final String SECRET = DiscogsSecrets.getSecret();
+	static final String KEY = "ljqKmwhRclKCeUHUpXdv" ; //DiscogsSecrets.getKey();
+	static final String SECRET = "kkOmYCyVSeSYPSAoHFLYufjgsAlSaprM" ; //DiscogsSecrets.getSecret();
 
 	@GET
 	@Path( "/database/search" )

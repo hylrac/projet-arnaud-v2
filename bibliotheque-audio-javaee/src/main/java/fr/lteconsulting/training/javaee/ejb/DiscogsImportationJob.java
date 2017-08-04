@@ -61,7 +61,7 @@ public class DiscogsImportationJob
 		toImportArtistsId.add( discogsArtistId );
 	}
 
-	@Schedule( second = "*/4", minute = "*", hour = "*" )
+	@Schedule( second = "*/1", minute = "*", hour = "*" )
 	public void work()
 	{
 		try

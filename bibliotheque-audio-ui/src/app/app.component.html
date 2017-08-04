@@ -1,7 +1,10 @@
 <h1>Bibliotheque Audio</h1>
 
-<div *ngFor='let auteur of auteurs | async' (click)='selectedAuteur=auteur' [style.border]='(selectedAuteur===auteur)?"1px solid black":"none"'>
+<div *ngFor='let auteur of auteurs | async' (click)='putSelectedAuteur(auteur)' (click)="putSelectedChansons(auteur)" [style.border]='(selectedAuteur===auteur)?"1px solid black":"none"'>
   {{auteur.nom}}
+  <div *ngIf='auteur===selectedAuteur'>
+    <div *ngFor='let chanson of selectedChansons | async'>{{chanson.nom}}</div>
+  </div>
 </div>
 
 <h2>Recherche d'artistes à importer (avec Discogs)</h2>
